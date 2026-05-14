@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Albin Sunil | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#050505;
+      color:white;
+      overflow-x:hidden;
+      line-height:1.7;
+    }
+
+    /* BACKGROUND */
+
+    .bg-blur-1{
+      position:fixed;
+      width:650px;
+      height:650px;
+      background:rgba(255,0,60,0.18);
+      border-radius:50%;
+      filter:blur(140px);
+      top:-200px;
+      right:-200px;
+      z-index:-1;
+    }
+
+    .bg-blur-2{
+      position:fixed;
+      width:550px;
+      height:550px;
+      background:rgba(180,0,0,0.14);
+      border-radius:50%;
+      filter:blur(140px);
+      bottom:-180px;
+      left:-180px;
+      z-index:-1;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:28px 0;
+      position:sticky;
+      top:0;
+      backdrop-filter:blur(12px);
+      background:rgba(0,0,0,0.6);
+      z-index:999;
+    }
+
+    .logo{
+      font-size:1.3rem;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
+
+    .nav-links a{
+      color:#cbd5e1;
+      text-decoration:none;
+      transition:0.3s;
+      font-size:0.95rem;
+    }
+
+    .nav-links a:hover{
+      color:white;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:92vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:70px;
+      flex-wrap:wrap;
+      padding:40px 0;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:320px;
+    }
+
+    .hero-text h1{
+      font-size:4rem;
+      font-weight:800;
+      line-height:1.05;
+      margin-bottom:18px;
+    }
+
+    .gradient-text{
+      background:linear-gradient(90deg,#ff4d6d,#ff003c);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero-text h2{
+      font-size:1.1rem;
+      color:#ff8fa3;
+      margin-bottom:28px;
+      font-weight:500;
+    }
+
+    .hero-text p{
+      color:#d1d5db;
+      max-width:700px;
+      font-size:1.05rem;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:18px;
+      margin-top:35px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 24px;
+      border-radius:14px;
+      text-decoration:none;
+      transition:0.3s;
+      font-weight:600;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,#ff003c,#c1121f);
+      color:white;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-4px);
+      box-shadow:0 10px 30px rgba(255,0,60,0.35);
+    }
+
+    .btn-secondary{
+      border:1px solid rgba(255,255,255,0.1);
+      color:white;
+      background:rgba(255,255,255,0.04);
+    }
+
+    .btn-secondary:hover{
+      transform:translateY(-4px);
+      background:rgba(255,255,255,0.08);
+    }
+
+    /* HERO CARDS */
+
+    .hero-cards{
+      flex:1;
+      min-width:320px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .glass-card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:28px;
+      backdrop-filter:blur(16px);
+      transition:0.3s;
+    }
+
+    .glass-card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(255,0,60,0.35);
+    }
+
+    .glass-card h3{
+      font-size:1.1rem;
+      margin-bottom:10px;
+    }
+
+    .glass-card p{
+      color:#d1d5db;
+      font-size:0.95rem;
+    }
+
+    .emoji{
+      font-size:2rem;
+      margin-bottom:15px;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      font-size:2rem;
+      margin-bottom:18px;
+      font-weight:700;
+    }
+
+    .section-subtitle{
+      color:#9ca3af;
+      max-width:700px;
+      margin-bottom:45px;
+    }
+
+    /* ABOUT */
+
+    .about-box{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.07);
+      border-radius:30px;
+      padding:40px;
+      color:#f3f4f6;
+    }
+
+    /* SKILLS */
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .skill{
+      padding:12px 18px;
+      border-radius:999px;
+      background:rgba(255,0,60,0.12);
+      border:1px solid rgba(255,0,60,0.22);
+      color:#ffccd5;
+      font-size:0.95rem;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:28px;
+    }
+
+    .project-card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.07);
+      border-radius:28px;
+      padding:32px;
+      transition:0.35s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(255,0,60,0.35);
+    }
+
+    .project-card h3{
+      font-size:1.35rem;
+      margin-bottom:15px;
+    }
+
+    .project-card p{
+      color:#d1d5db;
+      margin-bottom:18px;
+    }
+
+    .project-card ul{
+      padding-left:20px;
+      color:#ffccd5;
+    }
+
+    .project-card li{
+      margin-bottom:10px;
+    }
+
+    /* CONTACT */
+
+    .contact-box{
+      background:linear-gradient(
+      135deg,
+      rgba(255,0,60,0.15),
+      rgba(0,0,0,0.95)
+      );
+
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:32px;
+      padding:45px;
+    }
+
+    .contact-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+
+    .contact-links a{
+      text-decoration:none;
+      color:white;
+      padding:14px 22px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.07);
+      transition:0.3s;
+    }
+
+    .contact-links a:hover{
+      transform:translateY(-4px);
+      background:rgba(255,0,60,0.22);
+    }
+
+    footer{
+      padding:50px 0;
+      text-align:center;
+      color:#9ca3af;
+      font-size:0.9rem;
+    }
+
+    /* SCROLLBAR */
+
+    ::-webkit-scrollbar{
+      width:10px;
+    }
+
+    ::-webkit-scrollbar-track{
+      background:#0a0a0a;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background:#700014;
+      border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover{
+      background:#b00020;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero{
+        flex-direction:column;
+      }
+
+      .hero-text h1{
+        font-size:3rem;
+      }
+
+      .hero-cards{
+        width:100%;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .nav-links{
+        gap:18px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+    }
+
+    @media(max-width:650px){
+
+      .hero-cards{
+        grid-template-columns:1fr;
+      }
+
+      .hero-text h1{
+        font-size:2.4rem;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-blur-1"></div>
+  <div class="bg-blur-2"></div>
+
+  <!-- NAVBAR -->
+
+  <div class="container">
+
+    <nav>
+
+      <div class="logo">
+        Albin Sunil
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#medical">Medical</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </nav>
+
+  </div>
+
+  <!-- HERO -->
+
+  <div class="container">
+
+    <section class="hero">
+
+      <div class="hero-text">
+
+        <h1>
+          Hey, I'm
+          <span class="gradient-text">Albin.</span>
+        </h1>
+
+        <h2>
+          Computer Science Student at NTU |
+          Aspiring CyberSecurity Analyst |
+          EMT |
+          Aviation Enthusiast
+        </h2>
+
+        <p>
+          I'm Albin — just a guy trying to find his way through technology and
+          carve out a place for himself in the world. I love building things,
+          experimenting with ideas, and using tech to make life a little better.
+          Whether it's coding projects, cybersecurity, aviation, emergency medicine,
+          or even selling stuff online because I'm chronically on Carousell,
+          I enjoy learning by doing. If I sound like someone you'd vibe with,
+          feel free to reach out.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#projects" class="btn btn-primary">
+            View Projects
+          </a>
+
+          <a href="#contact" class="btn btn-secondary">
+            Let's Connect
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- HERO CARDS -->
+
+      <div class="hero-cards">
+
+        <div class="glass-card">
+          <div class="emoji">💻</div>
+          <h3>Technology</h3>
+          <p>
+            Passionate about software engineering, systems,
+            and building useful tech that people can genuinely benefit from.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <div class="emoji">🛡️</div>
+          <h3>CyberSecurity</h3>
+          <p>
+            Interested in digital security, system protection,
+            and understanding how modern cyber threats evolve.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <div class="emoji">✈️</div>
+          <h3>Aviation</h3>
+          <p>
+            Deep interest in aviation technology, aircraft systems,
+            and the engineering behind modern flight.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <div class="emoji">📈</div>
+          <h3>Sales & Communication</h3>
+          <p>
+            Experienced in online selling and communication through
+            platforms like Carousell, learning negotiation and people skills.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <div class="emoji">🚑</div>
+          <h3>Emergency Medicine</h3>
+          <p>
+            Nationally registered EMT with frontline experience in
+            SCDF 995 ambulance operations and the SAF as a combat medic.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <div class="emoji">🧬</div>
+          <h3>BioTech & HealthTech</h3>
+          <p>
+            Interested in the intersection of healthcare,
+            biotechnology, emergency medicine, and intelligent medical systems.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- ABOUT -->
+
+  <div class="container">
+
+    <section id="about">
+
+      <h2 class="section-title">
+        About Me
+      </h2>
+
+      <p class="section-subtitle">
+        A little more about who I am and what I enjoy building.
+      </p>
+
+      <div class="about-box">
+
+        <p>
+          Currently pursuing Computer Science at NTU Singapore, I'm constantly
+          exploring different areas of technology, from software engineering
+          and cybersecurity to systems programming and hardware-level concepts.
+          I enjoy creating projects that challenge me technically while still
+          being meaningful and practical.
+
+          <br><br>
+
+          Outside of coding, I'm a huge aviation enthusiast and someone who
+          genuinely enjoys interacting with people, learning how things work,
+          and trying new ideas.
+
+          <br><br>
+
+          I also have experience in emergency medicine as a nationally registered
+          EMT, having worked in both SCDF's 995 ambulance service and the SAF
+          as a combat medic. Those experiences taught me how to stay calm under
+          pressure, make critical decisions quickly, and work effectively in
+          high-stakes situations.
+
+          <br><br>
+
+          Working in both healthcare and technology sparked my interest in
+          biotech and health-tech innovation, especially where software,
+          intelligent systems, and medicine can come together to improve
+          patient care and emergency response.
+
+          <br><br>
+
+          I believe technology should feel human, useful, and accessible,
+          and that's the mindset I try to bring into everything I build.
+        </p>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- MEDICAL -->
+
+  <div class="container">
+
+    <section id="medical">
+
+      <h2 class="section-title">
+        Emergency Medicine & Biotech
+      </h2>
+
+      <p class="section-subtitle">
+        Combining frontline medical experience with technology and innovation.
+      </p>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+
+          <h3>🚑 Registered EMT</h3>
+
+          <p>
+            Nationally registered Emergency Medical Technician with
+            operational experience across civilian and military settings.
+          </p>
+
+        </div>
+
+        <div class="project-card">
+
+          <h3>🏥 SCDF 995 Ambulance</h3>
+
+          <p>
+            Worked in Singapore's emergency ambulance response system,
+            handling urgent medical situations under pressure.
+          </p>
+
+        </div>
+
+        <div class="project-card">
+
+          <h3>🪖 SAF Combat Medic</h3>
+
+          <p>
+            Trained and operated as a combat medic with strong focus on
+            teamwork, resilience, rapid assessment, and emergency care.
+          </p>
+
+        </div>
+
+        <div class="project-card">
+
+          <h3>🧬 HealthTech Interest</h3>
+
+          <p>
+            Strong interest in biotechnology, intelligent medical systems,
+            healthcare monitoring, and patient-focused innovation.
+          </p>
+
+        </div>
+
+      </div>
+
+      <br><br>
+
+      <div class="skills">
+
+        <div class="skill">BCLS</div>
+        <div class="skill">AED</div>
+        <div class="skill">CPR</div>
+        <div class="skill">IV Cannulation</div>
+        <div class="skill">Emergency Response</div>
+        <div class="skill">Trauma Handling</div>
+        <div class="skill">Critical Decision Making</div>
+        <div class="skill">Patient Assessment</div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- SKILLS -->
+
+  <div class="container">
+
+    <section id="skills">
+
+      <h2 class="section-title">
+        Technical Skills
+      </h2>
+
+      <p class="section-subtitle">
+        Languages and technologies I work with.
+      </p>
+
+      <div class="skills">
+
+        <div class="skill">Python</div>
+        <div class="skill">Java</div>
+        <div class="skill">C</div>
+        <div class="skill">C++</div>
+        <div class="skill">SQL</div>
+        <div class="skill">Verilog</div>
+        <div class="skill">Assembly</div>
+        <div class="skill">Object-Oriented Design</div>
+        <div class="skill">SOLID Principles</div>
+        <div class="skill">BCE Architecture</div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- PROJECTS -->
+
+  <div class="container">
+
+    <section id="projects">
+
+      <h2 class="section-title">
+        Featured Projects
+      </h2>
+
+      <p class="section-subtitle">
+        Some projects and ideas I've worked on recently.
+      </p>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+
+          <h3>
+            Combat-Based Turn Game
+          </h3>
+
+          <p>
+            A Java command-line turn-based combat game designed using
+            Object-Oriented Design Principles and SOLID architecture.
+            The project follows the Boundary-Control-Entity (BCE)
+            architectural pattern with strong separation of concerns.
+          </p>
+
+          <ul>
+            <li>Dynamic action filtering based on player state</li>
+            <li>Buff/Debuff categorisation system</li>
+            <li>Centralised input validation with recovery handling</li>
+            <li>Mid-combat restart and exit gateway system</li>
+            <li>Built entirely in Java</li>
+          </ul>
+
+        </div>
+
+        <div class="project-card">
+
+          <h3>
+            SepsiPatch & SepsiCare Plus
+          </h3>
+
+          <p>
+            A healthcare-focused monitoring solution for sepsis survivors,
+            designed to continuously monitor patients and detect possible
+            sepsis recurrence while enabling them to live more freely and safely.
+          </p>
+
+          <ul>
+            <li>Agentic health alerts and smart suggestions</li>
+            <li>Biodegradable micro-needle monitoring layer</li>
+            <li>Biomarker and PTT-based monitoring concepts</li>
+            <li>Shortlisted in the OpenClaw Agentic Ideathon</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- CONTACT -->
+
+  <div class="container">
+
+    <section id="contact">
+
+      <div class="contact-box">
+
+        <h2 class="section-title">
+          Let's Connect
+        </h2>
+
+        <p>
+          Open to collaborations, internships, interesting conversations,
+          and opportunities in software engineering, cybersecurity,
+          biotech, healthcare innovation, and technology.
+        </p>
+
+        <div class="contact-links">
+
+          <a href="mailto:albinmathewsunil@gmail.com">
+            Email Me
+          </a>
+
+          <a href="https://www.linkedin.com/in/albin-mathew-sunil/" target="_blank">
+            LinkedIn
+          </a>
+
+          <a href="https://github.com/im-amsk" target="_blank">
+            GitHub
+          </a>
+
+          <a href="#">
+            Resume (Coming Soon)
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <div class="container">
+
+    <footer>
+      © 2026 Albin Sunil • Built with passion and caffeine ☕
+    </footer>
+
+  </div>
+
+</body>
+</html>
