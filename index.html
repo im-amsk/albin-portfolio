@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    
 
     *{
       margin:0;
@@ -211,10 +212,52 @@
       font-size:0.95rem;
     }
 
-    .emoji{
-      font-size:2rem;
-      margin-bottom:15px;
-    }
+.card-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #ff003c, #7a0018);
+  box-shadow: 0 8px 20px rgba(255, 0, 60, 0.25);
+  position: relative;
+}
+
+.title-with-icon{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.title-icon{
+  width: 46px;
+  height: 46px;
+  flex:0 0 46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff335f, #8f1028);
+  box-shadow: 0 10px 24px rgba(255, 0, 60, 0.22);
+  border: 1px solid rgba(255,255,255,0.12);
+  position: relative;
+}
+
+.icon-image{
+  width:26px;
+  height:26px;
+  object-fit:contain;
+  filter: brightness(0) invert(1);
+}
+
+.title-icon .icon-image{
+  width:22px;
+  height:22px;
+  position:absolute;
+  inset:0;
+  margin:auto;
+}
 
     /* SECTION */
 
@@ -479,67 +522,65 @@
 
       <!-- HERO CARDS -->
 
-      <div class="hero-cards">
+<!-- HERO CARDS -->
 
-        <div class="glass-card">
-          <div class="emoji">💻</div>
-          <h3>Technology</h3>
-          <p>
-            Passionate about software engineering, systems,
-            and building useful tech that people can genuinely benefit from.
-          </p>
-        </div>
+<div class="hero-cards">
 
-        <div class="glass-card">
-          <div class="emoji">🛡️</div>
-          <h3>CyberSecurity</h3>
-          <p>
-            Interested in digital security, system protection,
-            and understanding how modern cyber threats evolve.
-          </p>
-        </div>
-
-        <div class="glass-card">
-          <div class="emoji">✈️</div>
-          <h3>Aviation</h3>
-          <p>
-            Deep interest in aviation technology, aircraft systems,
-            and the engineering behind modern flight.
-          </p>
-        </div>
-
-        <div class="glass-card">
-          <div class="emoji">📈</div>
-          <h3>Sales & Communication</h3>
-          <p>
-            Experienced in online selling and communication through
-            platforms like Carousell, learning negotiation and people skills.
-          </p>
-        </div>
-
-        <div class="glass-card">
-          <div class="emoji">🚑</div>
-          <h3>Emergency Medicine</h3>
-          <p>
-            Nationally registered EMT with frontline experience in
-            SCDF 995 ambulance operations and the SAF as a combat medic.
-          </p>
-        </div>
-
-        <div class="glass-card">
-          <div class="emoji">🧬</div>
-          <h3>BioTech & HealthTech</h3>
-          <p>
-            Interested in the intersection of healthcare,
-            biotechnology, emergency medicine, and intelligent medical systems.
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
+  <div class="glass-card">
+  <div class="card-icon"><img class="icon-image" src="assets/icons/pc.svg" alt="Technology icon"></div> 
+    <h3>Technology</h3>
+    <p>
+      Passionate about software engineering, systems,
+      and building useful tech that people can genuinely benefit from.
+    </p>
   </div>
+
+  <div class="glass-card">
+    <div class="card-icon"><img class="icon-image" src="assets/icons/shield.svg" alt="Cybersecurity icon"></div>
+    <h3>CyberSecurity</h3>
+    <p>
+      Interested in digital security, system protection,
+      and understanding how modern cyber threats evolve.
+    </p>
+  </div>
+
+  <div class="glass-card">
+    <div class="card-icon"><img class="icon-image" src="assets/icons/aviation.svg" alt="Aviation icon"></div>
+    <h3>Aviation</h3>
+    <p>
+      Deep interest in aviation technology, aircraft systems,
+      and the engineering behind modern flight.
+    </p>
+  </div>
+
+  <div class="glass-card">
+    <div class="card-icon"><img class="icon-image" src="assets/icons/sales.svg" alt="Sales icon"></div>
+    <h3>Sales & Communication</h3>
+    <p>
+      Experienced in online selling and communication through
+      platforms like Carousell, learning negotiation and people skills.
+    </p>
+  </div>
+
+  <div class="glass-card">
+    <div class="card-icon"><img class="icon-image" src="assets/icons/ambulance.svg" alt="Emergency medicine icon"></div>
+    <h3>Emergency Medicine</h3>
+    <p>
+      Nationally registered EMT with frontline experience in
+      SCDF 995 ambulance operations and the SAF as a combat medic.
+    </p>
+  </div>
+
+  <div class="glass-card">
+    <div class="card-icon"><img class="icon-image" src="assets/icons/biotech.svg" alt="Biotech icon"></div>
+    <h3>BioTech & HealthTech</h3>
+    <p>
+      Interested in the intersection of healthcare,
+      biotechnology, emergency medicine, and intelligent medical systems.
+    </p>
+  </div>
+
+</div>
 
   <!-- ABOUT -->
 
@@ -615,7 +656,10 @@
 
         <div class="project-card">
 
-          <h3>🚑 Registered EMT</h3>
+          <h3 class="title-with-icon">
+            <span class="title-icon"><img class="icon-image" src="assets/icons/combatmedic.svg" alt="Registered EMT icon"></span>
+            Registered EMT
+          </h3>
 
           <p>
             Nationally registered Emergency Medical Technician with
@@ -626,7 +670,10 @@
 
         <div class="project-card">
 
-          <h3>🏥 SCDF 995 Ambulance</h3>
+          <h3 class="title-with-icon">
+            <span class="title-icon"><img class="icon-image" src="assets/icons/ambulance.svg" alt="SCDF ambulance icon"></span>
+            SCDF 995 Ambulance
+          </h3>
 
           <p>
             Worked in Singapore's emergency ambulance response system,
@@ -637,7 +684,10 @@
 
         <div class="project-card">
 
-          <h3>🪖 SAF Combat Medic</h3>
+          <h3 class="title-with-icon">
+            <span class="title-icon"><img class="icon-image" src="assets/icons/combatmedic.svg" alt="Combat medic icon"></span>
+            SAF Combat Medic
+          </h3>
 
           <p>
             Trained and operated as a combat medic with strong focus on
@@ -648,7 +698,10 @@
 
         <div class="project-card">
 
-          <h3>🧬 HealthTech Interest</h3>
+          <h3 class="title-with-icon">
+            <span class="title-icon"><img class="icon-image" src="assets/icons/biotech.svg" alt="HealthTech icon"></span>
+            HealthTech Interest
+          </h3>
 
           <p>
             Strong interest in biotechnology, intelligent medical systems,
